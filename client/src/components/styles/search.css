@@ -1,0 +1,16 @@
+.busqueda {
+    position: relative;
+    width: 180px;
+    padding: 10px;
+    background-color: beige
+}
+
+.imput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+ }
