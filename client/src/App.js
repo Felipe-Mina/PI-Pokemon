@@ -7,6 +7,7 @@ import { CardDetail } from "./components/CardDetail";
 import { LandingPage } from "./components/LandingPage";
 import { Home } from "./components/Home";
 import { SearchScreen } from "./components/SearchScreen";
+import { PokemonScreen } from "./components/PokemonScreen";
 
 
 
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <Routes>
+          <Route path="/pokemon" element={<PokemonScreen />} />
           <Route path="/home" element={<Home />} />
           <Route path='/' element={<LandingPage />} />
           <Route path='/card' element={<CardDetail />} />

@@ -1,0 +1,27 @@
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
+  .button {
+    border: 0ch;
+    margin: 0%;
+    font-size: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+    border-radius: 5px;
+    backdrop-filter: blur(14px);
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .pagination-buttons {
+    margin: 20px;
+    margin-bottom: 3px;
+    backdrop-filter: blur(14px);
+    background-color: rgba(255, 255, 255, 0.2);
+  }

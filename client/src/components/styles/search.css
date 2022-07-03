@@ -1,16 +1,40 @@
-.busqueda {
+.search-container {
+    height: 679px;
+    background-attachment: fixed;
+    background-image: url('../../images/wallpaper-home.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     position: relative;
-    width: 180px;
+    overflow-y: hidden;
+}
+
+.search-screen  {
+    display: flex;
+    justify-content: space-around;
+}
+
+.busqueda {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
-    background-color: beige
 }
 
 .imput {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
- }
+    font-size: 17px;   
+    padding: 0.2rem 0.5rem; 
+    border: none;
+    outline: 10px;;
+    background: none;
+  }
+
+  .resultados {
+    width: 340px;
+  }
+
+  .btn-search {
+    height: 31px;
+    backdrop-filter: blur(14px);
+    background-color: rgba(255, 255, 255, 0.535);
+    box-shadow: 0 6px 17px rgba(70, 81, 11, 0.663);
+    border: 0ch;
+  }

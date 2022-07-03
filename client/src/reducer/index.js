@@ -1,5 +1,6 @@
 const initialState = {
     allPok: [],
+    searchPok:[]
 }
 
 function rootReducer(state = initialState, action) {
@@ -8,6 +9,16 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allPok: action.payload,
+            }
+        case 'SEARCH_POKEMONS':
+            return{
+                ...state,
+                searchPok:action.payload
+            }
+        case 'POKEMON_DETAIL':
+            return{
+                ...state,
+                searchPok:action.payload
             }
         default: 
             return {

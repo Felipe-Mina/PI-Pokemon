@@ -1,13 +1,29 @@
 .landingpage{
+    display: flex;
     height: 100vh;
     width: 100%;
-    background-image: url(https://sfondo.info/i/original/3/a/6/32957.jpg);
+    background-image: url('../../images/wallpaper-landing.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-/* .btn {
+.lnk {
+    display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-} */
+    font-style: italic;
+    font-size: 27px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 145px;
+    height: 140px;
+    border-radius: 50%;
+}
 
+.landing-btn-container {
+    display: flex;
+    height: 430px;
+}
