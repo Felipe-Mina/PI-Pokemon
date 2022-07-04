@@ -13,10 +13,10 @@ async function getExistent(req, res) {
           return {
             id: pDetail.data.id,
             name: pDetail.data.name,
-            image: pDetail.data.sprites.other.dream_world.front_default,
+            img: pDetail.data.sprites.other.dream_world.front_default,
             types: pDetail.data.types.map((t) => t.type.name),
             hp: pDetail.data.stats[0].base_stat,
-            attack: pDetail.data.stats[1].base_stat,
+            atck: pDetail.data.stats[1].base_stat,
             defense: pDetail.data.stats[2].base_stat,
             speed: pDetail.data.stats[5].base_stat,
             height: pDetail.data.height,
@@ -42,11 +42,11 @@ async function getExistent(req, res) {
      res.status(200).send(pokemonDb);
   };
 
-  const filterStrong = async (req, res) => {
+/*   const filterStrong = async (req, res) => {
     const filtered = Pokemon.findAll({
 
     })
-  }
+  } */
 
   module.exports = {
     getExistent,

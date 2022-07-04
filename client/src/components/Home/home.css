@@ -5,6 +5,7 @@
     background-size: 100% 100%;
     position: relative;
     overflow-y: hidden;
+    min-height: 100vh;
 }
 
 .home-cards{
@@ -18,4 +19,5 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
 

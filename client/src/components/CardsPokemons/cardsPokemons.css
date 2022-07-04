@@ -3,13 +3,15 @@
     margin: 0 20px 10px 10px;
 }
 
-.card-p {
+.text-p {
     font-weight: bold;
     font-size: 20px;
 }
 
-.card-contain img {
+.image-size {
     height: 70%;
+    box-sizing: border-box;
+    width: inherit;
 }
 
 .card-contain {

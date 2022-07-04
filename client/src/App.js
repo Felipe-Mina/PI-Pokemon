@@ -2,12 +2,13 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom"
 import store from "./store/index.js";
 import { Provider } from "react-redux";
-import { CreateForm } from "./components/CreateForm";
+import { CreateForm } from "./components/Form/CreateForm";
 import { CardDetail } from "./components/CardDetail";
-import { LandingPage } from "./components/LandingPage";
-import { Home } from "./components/Home";
-import { SearchScreen } from "./components/SearchScreen";
+import { LandingPage } from "./components/Landing/LandingPage";
+import { Home } from "./components/Home/Home";
+import { SearchScreen } from "./components/SearchScreen/SearchScreen";
 import { PokemonScreen } from "./components/PokemonScreen";
+import { LoadingPage } from "./components/LoadingPage/LoadingPage";
 
 
 

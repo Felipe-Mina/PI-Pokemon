@@ -1,4 +1,4 @@
-import "./styles/landingPage.css";
+import "./landingPage.css";
 import { Link } from "react-router-dom";
 
 export const LandingPage = () => {

@@ -1,9 +1,3 @@
-  .buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
 
   .button {
     border: 0ch;
@@ -17,11 +11,4 @@
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
     text-align: center;
-  }
-
-  .pagination-buttons {
-    margin: 20px;
-    margin-bottom: 3px;
-    backdrop-filter: blur(14px);
-    background-color: rgba(255, 255, 255, 0.2);
   }

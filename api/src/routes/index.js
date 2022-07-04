@@ -20,7 +20,7 @@ router.get('/types', getTypes);
 
 router.put('/pokmodify', putImg)
 
-router.get('/existing', getExistent)
+router.get('/existent', getExistent)
 
 router.get('/created', getCreated)
 

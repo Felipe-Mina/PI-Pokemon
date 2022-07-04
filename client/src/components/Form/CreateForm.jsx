@@ -1,6 +1,6 @@
 import React from "react";
-import { NavBar } from "./NavBar";
-import "./styles/form.css";
+import { NavBar } from "../NavBar/NavBar";
+import "./form.css";
 
 export const CreateForm = () => {
   const Type = [
@@ -107,7 +107,7 @@ export const CreateForm = () => {
             </select>
           </div>
           <div>
-            <input type="submit" value="Send Message" id="form_button" />
+            <input className="nav-button" type="submit" value="Send Message" id="form_button" />
           </div>
         </form>
         <div className="pokemon-created">

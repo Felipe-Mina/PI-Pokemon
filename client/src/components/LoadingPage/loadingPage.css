@@ -1,0 +1,12 @@
+.contain-loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-attachment: fixed;
+    background-image: url('../../images/wallpaper-home.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    overflow-y: hidden;
+    min-height: 100vh;
+}
