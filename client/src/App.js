@@ -7,8 +7,7 @@ import { CardDetail } from "./components/CardDetail";
 import { LandingPage } from "./components/Landing/LandingPage";
 import { Home } from "./components/Home/Home";
 import { SearchScreen } from "./components/SearchScreen/SearchScreen";
-import { PokemonScreen } from "./components/PokemonScreen";
-import { LoadingPage } from "./components/LoadingPage/LoadingPage";
+import { PokemonScreen } from "./components/PokemonScreen/PokemonScreen";
 
 
 

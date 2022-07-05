@@ -4,7 +4,7 @@ const initialState = {
     loading: true,
     allPok: [],
     searchPok: [],
-    filter: [],
+    pokemonsPrincipal: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -13,6 +13,7 @@ function rootReducer(state = initialState, action) {
             return {
                 allPok: [],
                 loading: true,
+                searchPok: [],
             }
         case 'GET_POKEMONS':
             return {
@@ -20,6 +21,7 @@ function rootReducer(state = initialState, action) {
                 loading: false,
                 allPok: action.payload,
                 filter: action.payload,
+                pokemonsPrincipal: action.payload,
             }
         case 'SEARCH_POKEMONS':
             return{
@@ -84,11 +86,14 @@ function rootReducer(state = initialState, action) {
             return {...state, allPok: [...sortStrPokemons]}
 
             case 'TYPES_POKEMONS':
-                const typePok = state.allPok;
+
+                const typePok = state.pokemonsPrincipal;
                 const pok = typePok.filter((e) => {
                     return e.types.includes(action.payload)
                 })
-                return {...state, filter: [...pok]};
+                return {
+                    ...state, allPok: [...pok]
+                };
         default: 
             return {
                 ...state,

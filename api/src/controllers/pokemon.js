@@ -35,12 +35,27 @@ const getDbInfo = async () => {
   const pokemonDb = await Pokemon.findAll({
     include: {
       model: Type,
+      attributes: ['name'],
       through: {
         attributes: [],
       },
     },
   });
-   return pokemonDb;
+  const pokemon = pokemonDb.map(e => {
+    return {
+      name: e.name,
+      img: e.img,
+      hp: e.hp,
+      atck: e.atck,
+      def: e.def,
+      speed: e.speed,
+      height: e.height,
+      weight: e.weight,
+      types: e.types.map(e => e.name)
+    }
+  })
+  console.log(pokemon)
+   return pokemon;
 };
 
 const getAllInfo = async (req, res) => {
@@ -95,7 +110,7 @@ const getPokById = async (req, res) => {
       const pokemon = {
         id: p.id,
         name: p.name,
-        img: p.image,
+        img: p.sprites.other.dream_world.front_default,
         hp: p.stats[0].base_stat,
         atck: p.stats[1].base_stat,
         def: p.stats[2].base_stat,
@@ -124,9 +139,17 @@ const createPokemon = async (req, res) => {
     speed: speed,
     height: height,
     weight: weight,
-    types: types,
     img: img,
   });
+  types.map(async (t) => {
+    const [postTypes, succes] = await Type.findOrCreate({
+      where: {
+        name: t,
+      },
+      defaults: { name: t },
+    });
+    await pokCreate.addType(postTypes);
+  })
   res.status(200).send(pokCreate);
 };
 

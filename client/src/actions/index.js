@@ -72,7 +72,6 @@ export const change_loading = () => {
 }
 
 export const types_pokemons = (value) => {
-    console.log(value);
     return {
         type: "TYPES_POKEMONS",
         payload: value,

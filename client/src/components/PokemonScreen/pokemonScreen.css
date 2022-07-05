@@ -1,0 +1,32 @@
+.pokemon-contain {
+    display: flex;
+    justify-content: space-around;
+    background-image: url('../../images/wallpaper-home.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    overflow-y: hidden;
+    min-height: 92.2vh;
+}
+.detail-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 400px;
+    width: 500px;
+}
+
+.detail-screen img {
+    height: 400px;
+}
+
+.detail-screen h1 {
+    justify-content: center;
+}
+
+.stats-contain {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}

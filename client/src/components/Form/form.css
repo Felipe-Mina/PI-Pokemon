@@ -1,13 +1,24 @@
 .form-container {
     display: flex;
+    align-items: center;
     justify-content: space-around;
-    height: 679px;
+    min-height: 100vh;
     background-attachment: fixed;
     background-image: url('../../images/wallpaper-home.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
     overflow-y: hidden;
+}
+
+.pokemon-form {
+    width: 400px;
+    height: 530px;
+}
+
+.pokemon-created {
+    height: 530px;
+    width: 400px;
 }
 
 .form-imput {
@@ -36,6 +47,39 @@
     border-bottom-right-radius: 9px;
 }
 
-.pokemon-form {
-    width: 200px;
+.types-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
 }
+
+.type-contain {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 5px 5px 5px;
+    background-color: darkslategrey;
+    backdrop-filter: blur(14px);
+    height: 15px;
+}
+
+.x-button {
+    margin-right: 2px;
+    margin-left: 6px;
+    height: 14px;
+    width: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f83c2b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  }
