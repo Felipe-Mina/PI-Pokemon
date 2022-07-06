@@ -3,20 +3,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { pokemon_detail } from "../../actions/index";
 import { NavBar } from "../NavBar/NavBar";
 import "./pokemonScreen.css";
+import {LoadingPage} from '../LoadingPage/LoadingPage'
 
 export const PokemonScreen = () => {
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.searchPok);
-  /*   useEffect(() => {
-        dispatch(pokemon_detail());
-    }, [dispatch]); */
-  console.log(detail);
+
+  if (detail.length === 0) {
+    return (
+      <>
+        <NavBar />
+      <div>
+        <LoadingPage>
+        </LoadingPage>
+      </div>
+      </>
+    )
+  }
   return (
     <>
       <NavBar />
       <div className="pokemon-contain">
         <div className="detail-screen">
-          <div>
+          <div >
             <h1>{detail.name}</h1>
           </div>
           <div>

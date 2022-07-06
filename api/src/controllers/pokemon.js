@@ -6,7 +6,9 @@ const Op = Sequelize.Op;
 
 async function getApiInfo() {
   try {
-    const poke = await axios(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=40`);
+    const poke = await axios(
+      `https://pokeapi.co/api/v2/pokemon?offset=0&limit=40`
+    );
     const pokeData = poke.data.results;
     const pokemon = await Promise.all(
       pokeData.map(async (poke) => {
@@ -27,22 +29,61 @@ async function getApiInfo() {
     );
     return pokemon;
   } catch (error) {
-    throw new Error(error);
+    throw new Error("error loading info");
   }
 }
 
 const getDbInfo = async () => {
-  const pokemonDb = await Pokemon.findAll({
-    include: {
-      model: Type,
-      attributes: ['name'],
-      through: {
-        attributes: [],
+  try {
+    const pokemonDb = await Pokemon.findAll({
+      include: {
+        model: Type,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
       },
-    },
-  });
-  const pokemon = pokemonDb.map(e => {
-    return {
+    });
+    const pokemon = pokemonDb.map((e) => {
+      return {
+        name: e.name,
+        img: e.img,
+        hp: e.hp,
+        atck: e.atck,
+        def: e.def,
+        speed: e.speed,
+        height: e.height,
+        weight: e.weight,
+        types: e.types.map((e) => e.name),
+      };
+    });
+    return pokemon;
+  } catch (error) {
+    throw new Error("error loading DB info");
+  }
+};
+
+const getAllInfo = async (req, res) => {
+  try {
+    const apiPok = await getApiInfo();
+    const dbPok = await getDbInfo();
+    const allPok = apiPok.concat(dbPok);
+    res.status(200).send(allPok);
+  } catch (error) {
+    res.status(400).send("error loading pokemons");
+  }
+};
+
+const getPokByName = async (req, res) => {
+  const { name } = req.params;
+  try {
+    const e = await Pokemon.findOne({
+      where: {
+        name: { [Op.iLike]: `%${name}%` },
+      },
+      include: [{ model: Type }],
+    });
+    const dbPokemon = {
       name: e.name,
       img: e.img,
       hp: e.hp,
@@ -51,31 +92,12 @@ const getDbInfo = async () => {
       speed: e.speed,
       height: e.height,
       weight: e.weight,
-      types: e.types.map(e => e.name)
-    }
-  })
-  console.log(pokemon)
-   return pokemon;
-};
-
-const getAllInfo = async (req, res) => {
-  const apiPok = await getApiInfo();
-  const dbPok = await getDbInfo();
-  const allPok = apiPok.concat(dbPok);
-  res.status(200).send(allPok);
-};
-
-const getPokByName = async (req, res) => {
-  const { name } = req.params;
-  try {
-    const dbPok = await Pokemon.findOne({
-      where: {
-        name: { [Op.iLike]: `%${name}%` },
-      },
-      include: [{ model: Type }],
-    });
-    if (dbPok === null) {
-      const pokeInfo = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+      types: e.types.map((e) => e.name),
+    };
+    if (e === null) {
+      const pokeInfo = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${name}`
+      );
       const e = await pokeInfo.data;
       const pokemon = {
         id: e.id,
@@ -89,9 +111,10 @@ const getPokByName = async (req, res) => {
         height: e.height,
         weight: e.weight,
       };
-      return res.status(202).send(pokemon);
+      console.log(e);
+      return res.status(200).send(pokemon);
     }
-    res.status(202).send(dbPok);
+    res.status(200).send(dbPokemon);
   } catch (error) {
     res.status(400).send("pokemon not found");
   }
@@ -122,7 +145,7 @@ const getPokById = async (req, res) => {
     }
     res.status(200).send(dbPokId);
   } catch (error) {
-    res.status(400).send("pokemon no encontrado");
+    res.status(400).send("pokemon not found");
   }
 };
 
@@ -149,18 +172,8 @@ const createPokemon = async (req, res) => {
       defaults: { name: t },
     });
     await pokCreate.addType(postTypes);
-  })
+  });
   res.status(200).send(pokCreate);
-};
-
-const putImg = async (req, res) => {
-  const { img } = req.params;
-  await Pokemon.update(
-    {
-      img: img,
-    }
-    /* {where: {}} */
-  );
 };
 
 module.exports = {
@@ -169,5 +182,4 @@ module.exports = {
   getPokById,
   getPokByName,
   getApiInfo,
-  putImg,
 };

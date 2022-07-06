@@ -7,8 +7,7 @@ import "./search.css";
 import { CardsPokemons } from "../CardsPokemons/CardsPokemons";
 
 export const SearchScreen = () => {
-
-  const img = "https://d26bwjyd9l0e3m.cloudfront.net/wp-content/uploads/2016/08/Pikachu-Gif-Animation.gif"
+  const img = "https://d26bwjyd9l0e3m.cloudfront.net/wp-content/uploads/2016/08/Pikachu-Gif-Animation.gif";
 
   const dispatch = useDispatch();
 
@@ -32,23 +31,30 @@ export const SearchScreen = () => {
       <NavBar />
       <div className="search-screen">
         <div className="busqueda">
-      <form onSubmit={(e) => onSubmit(e)}>
-        <input
-          type="text"
-          placeholder="Pikachu is searching a friend..."
-          className="form-imput"
-          value={Pokemon}
-          onChange={(e) => handleInputChange(e)}
-          required={true}
-        />
+          <form onSubmit={(e) => onSubmit(e)}>
+            <input
+              type="text"
+              placeholder="Pikachu is searching a friend..."
+              className="form-imput"
+              value={Pokemon}
+              onChange={(e) => handleInputChange(e)}
+              required={true}
+            />
 
-        <input type="submit" value="🔎" className="btn-search" />
-      </form>
-      <img src={img} alt="no image"/>
-      </div>
-      <div className="resultados">
-        <h4>Resultados</h4>
-        {<CardsPokemons key={e.id} name={e.name} img={e.img} types={e.types} />}
+            <input type="submit" value="🔎" className="btn-search" />
+          </form>
+          <img src={img} alt="no image" />
+        </div>
+        <div className="resultados">
+          <h4>Resultados</h4>
+          {
+            <CardsPokemons
+              key={e.id}
+              name={e.name}
+              img={e.img}
+              types={e.types}
+            />
+          }
         </div>
       </div>
     </div>

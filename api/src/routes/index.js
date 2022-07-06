@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllInfo, createPokemon, getPokById, getPokByName, putImg } = require('../controllers/pokemon');
+const { getAllInfo, createPokemon, getPokById, getPokByName } = require('../controllers/pokemon');
 const { getCreated, getExistent } = require('../controllers/filters')
 const { getTypes } = require('../controllers/type');
 // Importar todos los routers;
@@ -17,8 +17,6 @@ router.post('/pokemon', createPokemon);
 router.get('/pokemon/:id', getPokById);
 
 router.get('/types', getTypes);
-
-router.put('/pokmodify', putImg)
 
 router.get('/existent', getExistent)
 

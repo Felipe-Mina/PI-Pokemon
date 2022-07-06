@@ -19,6 +19,7 @@ function onChangeExist(e){
   }
   dispatch(change_loading())
   dispatch(existent_pokemons(e.target.value))
+  console.log(e.target.value)
 }
 
 function onChangeStrong(e){
@@ -61,6 +62,7 @@ function onChangeTypes(e){
             <option value="Existent">Existent</option>
             <option value="Created">Created</option>
             <option value="all">All</option>
+            
         </select>
 
         <select onChange={onChangeAlfb} className="nav-button" name="exist" defaultValue='alpha'>

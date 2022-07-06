@@ -1,7 +1,7 @@
 .form-container {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     min-height: 100vh;
     background-attachment: fixed;
     background-image: url('../../images/wallpaper-home.jpg');

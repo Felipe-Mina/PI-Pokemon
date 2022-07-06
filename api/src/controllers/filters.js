@@ -39,7 +39,21 @@ async function getExistent(req, res) {
         },
       },
     });
-     res.status(200).send(pokemonDb);
+    const pokemon = pokemonDb.map((e) => {
+      return {
+        id: e.id,
+        name: e.name,
+        img: e.img,
+        hp: e.hp,
+        atck: e.atck,
+        def: e.def,
+        speed: e.speed,
+        height: e.height,
+        weight: e.weight,
+        types: e.types.map((e) => e.name),
+      };
+    });
+     res.status(200).send(pokemon);
   };
 
 /*   const filterStrong = async (req, res) => {
